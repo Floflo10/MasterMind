@@ -9,11 +9,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Set;
 
 /**
  *
  * @author Florian
+ * @version 0.4
+ * 
  */
 public class TestAlgo {
     int turn = 10;
@@ -78,11 +81,33 @@ public void test () {
         }
 
     //Jeu
-         essaie.add(2);
-         essaie.add(2);
-         essaie.add(2);
-         essaie.add(2);
-         essaie.add(2);         
+        int entreTemp = 0;
+        
+          Scanner sc = new Scanner(System.in); 
+        System.out.println("Prenez 1 : "); 
+        int entree = sc.nextInt();
+         
+        for (int i = (nbcase); i > 0; i--)
+        {
+        entreTemp = (int) Math.pow(10, i - 1);
+        int temp1 = entree / entreTemp;
+        int temp2 = entree % entreTemp;
+        entree = temp2;
+        
+        System.out.println(entreTemp);
+        System.out.println(entree);
+        
+        essaie.add(temp1);
+        
+        System.out.println(essaie);
+        }
+       /* for (int i = 0; i<soluce.size(); i++)
+        {
+            essaie.add(i) = x.charAt(i);
+                    } */
+
+        
+        
     for (int i = 0; i<soluce.size(); i++)
     {
         if (soluce.get(i) == essaie.get(i))
