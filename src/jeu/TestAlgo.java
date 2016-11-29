@@ -78,7 +78,11 @@ public void test () {
         }
 
     //Jeu
-         
+         essaie.add(2);
+         essaie.add(2);
+         essaie.add(2);
+         essaie.add(2);
+         essaie.add(2);         
     for (int i = 0; i<soluce.size(); i++)
     {
         if (soluce.get(i) == essaie.get(i))
