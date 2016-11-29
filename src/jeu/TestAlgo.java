@@ -5,7 +5,11 @@
  */
 package jeu;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 /**
  *
@@ -15,13 +19,40 @@ public class TestAlgo {
     int turn = 10;
     int nbcase = 5;
     
-    int soluce[] = new int[nbcase];
-    int essaie[] = new int[nbcase];
+    ArrayList soluce = new ArrayList();
+    ArrayList essaie = new ArrayList();
     int min = 1;
     int max = 9;
     Random r = new Random();
     int valeur = 0;
 
+    
+    public ArrayList test2 (ArrayList soluce)
+    {
+    Set temp = new HashSet (soluce);
+    ArrayList traite = new ArrayList(temp);
+    temp = null;
+    
+    System.out.println("\n" + traite);
+    
+    while (nbcase > traite.size())
+    {
+        valeur = min + r.nextInt(max - min);
+        traite.add(valeur); 
+    }
+   
+    
+   
+    for (int i = 0; i < nbcase; i++)
+    {
+            System.out.println("dsfqIndice = " + i + " valeur :" + traite.get(i));
+    }
+    Set temperature = new HashSet (traite);
+    ArrayList traite2 = new ArrayList(temperature);
+    Collections.shuffle(traite2);
+    return traite2;
+    }
+    
 public void test () {    
     
     //Création tableau
@@ -29,44 +60,67 @@ public void test () {
     {
         valeur = 0;
         valeur = min + r.nextInt(max - min);
-        soluce[i] = valeur;
+        soluce.add(valeur);
         
-     System.out.println("Indice = " + i + " valeur :" + soluce[i]);
+
+        
+     System.out.println("Indice = " + i + " valeur :" + soluce.get(i));
     }
     
     //Trie Tableau
-
-        boolean doublon = false;
-        //int temp = 0;
-        
-    do {
-        doublon = false;
-        for (int i = 0; i < nbcase; i++)
+            soluce = test2(soluce);
+    System.out.println("\n" + soluce);
+        while (nbcase > soluce.size())
         {
-            for (int j = 1; j < nbcase; j++) 
-            {
-             
-           if (soluce[i] == soluce[i+j])
-            {
-               valeur = 0;
-                valeur = min + r.nextInt(max - min);
-                soluce[i] = valeur;
-               
-            } 
-             doublon = true;
-            }
-    }
-           
-        } while ( doublon);
-    
-    for (int i = 0; i < soluce.length; i++)
-    {
-            System.out.println("Indice = " + i + " valeur :" + soluce[i]);
-    }
+            System.out.println("sdqf");
+            soluce = test2(soluce);
+            System.out.println("\n" + soluce);
+        }
+
     //Jeu
          
+    for (int i = 0; i<soluce.size(); i++)
+    {
+        if (soluce.get(i) == essaie.get(i))
+        {
+            System.out.println("OK");
+        }
+        
+        else {System.out.println("PAS");}
+    }
             
     //Fin
 }
 
 }
+
+
+
+
+ /*
+        boolean doublon = false;
+        int temp = 0;
+        
+    while (doublon == false) {
+        doublon = false;
+        for (int i = 0; i < nbcase; i++)
+        {
+            
+             System.out.println("B1 " + soluce.get(i) + "==" + soluce.get(i));
+            for (int j = 1; j < nbcase; j++) 
+            {
+             System.out.println("B2 " + soluce.get(i) + "==" + soluce.get(0+j));
+           if (soluce.get(i) == soluce.get(i+j))
+            {
+               valeur = 0;
+                valeur = min + r.nextInt(max - min);
+                soluce.add(valeur);
+               
+            } 
+             
+             doublon = true;
+            }
+    }
+           
+        }
+    */
