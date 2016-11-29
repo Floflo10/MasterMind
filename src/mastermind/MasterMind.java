@@ -5,9 +5,12 @@
  */
 package mastermind;
 
+import jeu.TestAlgo;
+
 /**
  *
- * @author Florian
+ * @author CodeSquadron
+ * @version 0.1
  */
 public class MasterMind {
 
@@ -16,6 +19,10 @@ public class MasterMind {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        TestAlgo test = new TestAlgo();
+
+test.test();
     }
     
 }
