@@ -12,4 +12,9 @@ package jeu;
  */
 public interface Ijeu {
     
+    public abstract void Initialisation();
+    public abstract void TraitementDoublons();
+    public abstract void Party();
+    public abstract void Fin();
+    
 }

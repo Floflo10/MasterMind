@@ -28,16 +28,24 @@ public class TestAlgo {
     int max = 9;
     Random r = new Random();
     int valeur = 0;
-
+    int BP = 0;
+    int MP = 0;
+    int nbturn = 0;
     
-    public ArrayList test2 (ArrayList soluce)
+    public ArrayList TraitementDoublons (ArrayList soluce)
     {
+        
+    /*Récupération de l'arrayList contenant les valeurs avec de possible doublons.    
+        Une fois récupérée, l'arrayList est tranformé en collectionneur de type Set.
+        Les doublons sont alors supprimé et la liste triée.
+        */
     Set temp = new HashSet (soluce);
     ArrayList traite = new ArrayList(temp);
     temp = null;
     
-    System.out.println("\n" + traite);
+ //   System.out.println("\n" + traite);
     
+ //Si il y a eu une suppression de tableau, les valeurs manquantes sont à nouveau remplie.
     while (nbcase > traite.size())
     {
         valeur = min + r.nextInt(max - min);
@@ -46,10 +54,14 @@ public class TestAlgo {
    
     
    
-    for (int i = 0; i < nbcase; i++)
+    /* for (int i = 0; i < nbcase; i++)
     {
-            System.out.println("dsfqIndice = " + i + " valeur :" + traite.get(i));
-    }
+            System.out.println("Indice = " + i + " valeur :" + traite.get(i));
+    } */
+    
+    /* Nouvelle suppression des potentiels doublons, la méthode rendant soit l'ArrayList final
+    soit une version sans doublons mais avec des valeurs manquantes
+    */
     Set temperature = new HashSet (traite);
     ArrayList traite2 = new ArrayList(temperature);
     Collections.shuffle(traite2);
@@ -67,24 +79,30 @@ public void test () {
         
 
         
-     System.out.println("Indice = " + i + " valeur :" + soluce.get(i));
+   //  System.out.println("Indice = " + i + " valeur :" + soluce.get(i));
     }
     
-    //Trie Tableau
-            soluce = test2(soluce);
-    System.out.println("\n" + soluce);
+    /*Trie Tableau - Appel réccurcif de la méthode TraitementDoublons.
+    Tant que l'Array n'est pas complet, on appel la méthode de supression.
+    */
+            soluce = TraitementDoublons(soluce);
+ //   System.out.println("\n" + soluce);
         while (nbcase > soluce.size())
         {
-            System.out.println("sdqf");
-            soluce = test2(soluce);
-            System.out.println("\n" + soluce);
+            soluce = TraitementDoublons(soluce);
+      //      System.out.println("\n" + soluce);
         }
 
-    //Jeu
+    //Jeu -   
+    while (nbturn != turn || BP != 5)
+    {
+        MP = 0;
+        BP = 0;
+        essaie.clear();
         int entreTemp = 0;
         
           Scanner sc = new Scanner(System.in); 
-        System.out.println("Prenez 1 : "); 
+        System.out.println("Entrez nombre : "); 
         int entree = sc.nextInt();
          
         for (int i = (nbcase); i > 0; i--)
@@ -94,36 +112,47 @@ public void test () {
         int temp2 = entree % entreTemp;
         entree = temp2;
         
-        System.out.println(entreTemp);
-        System.out.println(entree);
+       // System.out.println(entreTemp);
+       // System.out.println(entree);
         
         essaie.add(temp1);
         
-        System.out.println(essaie);
+        System.out.println(soluce);
+       // System.out.println(essaie);
         }
-       /* for (int i = 0; i<soluce.size(); i++)
-        {
-            essaie.add(i) = x.charAt(i);
-                    } */
 
-        
-        
+             
     for (int i = 0; i<soluce.size(); i++)
     {
         if (soluce.get(i) == essaie.get(i))
         {
-            System.out.println("OK");
+            BP++;
+            //System.out.println("OK");
         }
         
-        else {System.out.println("PAS");}
+        else {
+            MP++;
+            //System.out.println("PAS");
+        }
     }
-            
+    System.out.println(BP + "BP/" + MP + "MP");
+    nbturn++;
+    
+    }       
     //Fin
+    
+    if (BP == 5)
+    {
+        System.out.println("Eureka!");
+    }
+    
+    else
+    {
+        System.out.println("Fail, la bonne réponce était" + soluce);
+    }
 }
 
 }
-
-
 
 
  /*
