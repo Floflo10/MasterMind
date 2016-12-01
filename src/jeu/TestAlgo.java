@@ -18,6 +18,7 @@ import java.util.Set;
  * @version 0.4
  * 
  */
+
 public class TestAlgo {
     int turn = 10;
     int nbcase = 5;

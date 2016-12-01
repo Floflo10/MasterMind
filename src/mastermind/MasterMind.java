@@ -5,6 +5,7 @@
  */
 package mastermind;
 
+import jeu.JeuJoueur;
 import jeu.TestAlgo;
 
 /**
@@ -20,9 +21,12 @@ public class MasterMind {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        TestAlgo test = new TestAlgo();
+        JeuJoueur test = new JeuJoueur();
 
-test.test();
+test.Initialisation();
+test.Party();
+test.Fin();
+
     }
     
 }

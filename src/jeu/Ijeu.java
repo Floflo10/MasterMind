@@ -5,6 +5,8 @@
  */
 package jeu;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author CodeSquadron
@@ -13,7 +15,7 @@ package jeu;
 public interface Ijeu {
     
     public abstract void Initialisation();
-    public abstract void TraitementDoublons();
+    public abstract ArrayList TraitementDoublons(ArrayList soluce);
     public abstract void Party();
     public abstract void Fin();
     
