@@ -5,8 +5,8 @@
  */
 package mastermind;
 
-import jeu.JeuJoueur;
-import jeu.TestAlgo;
+import mastermind.jeu.JeuJoueur;
+import mastermind.jeu.TestAlgo;
 
 /**
  *

@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jeu;
+package mastermind.jeu;
 
 import java.util.ArrayList;
 
 /**
  *
  * @author CodeSquadron
- * @version 0.1
+ * @version 0.4
  */
+
 public interface Ijeu {
     
     public abstract void Initialisation();

@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jeu;
+package mastermind.menu;
 
 /**
  *
- * @author Florian
- * @version 0.1
- * 
+ * @author ewenb
  */
-public class FabriqueJeu {
+public class Menu {
     
 }
