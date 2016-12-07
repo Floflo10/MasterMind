@@ -5,6 +5,7 @@
  */
 package mastermind;
 
+import Fabrique.IJeu;
 import mastermind.jeu.JeuJoueur;
 import mastermind.jeu.TestAlgo;
 
@@ -18,15 +19,21 @@ public class MasterMind {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // TODO code application logic here
         
-        JeuJoueur test = new JeuJoueur();
-
+/* JeuJoueur test = new JeuJoueur();
 test.Initialisation();
 test.Party();
 test.Fin();
+*/
+      Usine aUsine = new Usine("JeuJoueur");
+      IJeu jeu = aUsine.construireJeu();
+      jeu.Afficher();
 
+       Menu menu = new Menu();
+        menu.choix_jeux();
+        
+  
     }
-    
-}
+    } 
