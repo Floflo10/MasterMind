@@ -105,17 +105,27 @@ public class JeuJoueur implements Ijeu {
                 entree = temp2;
 
                 essaie.add(temp1);
+                
 
             }
 
             for (int i = 0; i < soluce.size(); i++) {
+
                 if (soluce.get(i) == essaie.get(i)) {
                     BP++;
                 } else if (soluce.get(i) != essaie.get(i)) {
-                    MP++;
-                }
 
+                    for (int j = 0; j < soluce.size(); j++) {
+
+                        if (soluce.get(i) != essaie.get(i) && soluce.get(i) == essaie.get(j)) {
+                            MP++;
+                        }
+
+                    }
+
+                }
             }
+
             System.out.println(BP + "BP/" + MP + "MP");
             nbturn++;
 

@@ -44,8 +44,6 @@ public class JeuJoueurDoublon implements Ijeu {
             soluce.add(valeur);
 
         }
-
-
     }
 
 
@@ -73,12 +71,20 @@ public class JeuJoueurDoublon implements Ijeu {
             }
 
             for (int i = 0; i < soluce.size(); i++) {
+
                 if (soluce.get(i) == essaie.get(i)) {
                     BP++;
                 } else if (soluce.get(i) != essaie.get(i)) {
-                    MP++;
-                }
 
+                    for (int j = 0; j < soluce.size(); j++) {
+
+                        if (soluce.get(i) != essaie.get(i) && soluce.get(i) == essaie.get(j)) {
+                            MP++;
+                        }
+
+                    }
+
+                }
             }
             System.out.println(BP + "BP/" + MP + "MP");
             nbturn++;
