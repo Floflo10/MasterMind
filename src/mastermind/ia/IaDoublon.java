@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -61,7 +62,12 @@ public class IaDoublon implements IIa {
         
         System.out.println("BP = " + BPtemp);
         System.out.println("MP = " + MPtemp);
-
+        
+        System.out.println("BPtemp: " + BPtemp);
+        System.out.println("BPpre: " + BPpre);
+        System.out.println("MPtemp: " + MPtemp);
+        System.out.println("MPpre: " + MPpre);
+        
         if (!modif) {
             if ((BPtemp + MPtemp) == 5 || MPtemp == 5) {
 System.out.println("1");
@@ -91,12 +97,14 @@ System.out.println("1");
 
                 precedent = Soluce;
                 BPpre = BP;
+                MPpre = MP;
 
+                ValeurChange = (Integer) Soluce.get(IndiceChange);
+                
                 Soluce = GenCheck(Soluce, 1);
 
                 Indice.clear();
                 Valeur.clear();
-                ValeurChange = (Integer) Soluce.get(IndiceChange);
                 modif = true;
             }
             
@@ -121,6 +129,7 @@ System.out.println("1");
                 System.out.println("3");
                 precedent = Soluce;
                 BPpre = BP;
+                MPpre = MP;
                 ValeurChange = (Integer) Soluce.get(IndiceChange);
                 Soluce = GenCheck(Soluce, 1);
                 
@@ -143,10 +152,16 @@ System.out.println("1");
                 
                 Treat(Valeur, Indice, 3, Soluce);
                 
+                                precedent = Soluce;
+                BPpre = BP;
+                MPpre = MP;
+                
+                ValeurChange = (Integer) Soluce.get(IndiceChange);
+                
                 Soluce = GenCheck(Soluce, 1);
                 Indice.clear();
                 Valeur.clear();
-                ValeurChange = (Integer) Soluce.get(IndiceChange);
+                
             }
             
             else if (BPtemp < BPpre && MPtemp == MPpre){
@@ -154,7 +169,7 @@ System.out.println("1");
                 Valeur.add(ValeurChange);
                 Indice.add(IndiceChange); 
                 
-                Treat(Valeur, Indice, 5, Soluce);
+                //Treat(Valeur, Indice, 5, Soluce);
                  
                 for (int i = 1; i < 9; i++) {
                     Valeur.add(i);
@@ -164,10 +179,16 @@ System.out.println("1");
                 
                 Treat(Valeur, Indice, 3, Soluce);
                 
+                                precedent = Soluce;
+                BPpre = BP;
+                MPpre = MP;
+                
+                ValeurChange = (Integer) Soluce.get(IndiceChange);
+                
                 Soluce = GenCheck(Soluce, 1);
                 Indice.clear();
                 Valeur.clear();
-                ValeurChange = (Integer) Soluce.get(IndiceChange);
+                
             }
             
             else if (BPtemp > BPpre && MPtemp == MPpre){
@@ -181,10 +202,16 @@ System.out.println("1");
                 
                 Treat(Valeur, Indice, 3, Soluce);
                 
+                                precedent = Soluce;
+                BPpre = BP;
+                MPpre = MP;
+                
+                ValeurChange = (Integer) Soluce.get(IndiceChange);
+                
                 Soluce = GenCheck(Soluce, 1);
                 Indice.clear();
                 Valeur.clear();
-                ValeurChange = (Integer) Soluce.get(IndiceChange);
+                
             }
             
             
@@ -193,7 +220,7 @@ System.out.println("1");
                 Valeur.add(ValeurChange);
                 Indice.add(IndiceChange); 
                 
-                Treat(Valeur, Indice, 5, Soluce);
+               // Treat(Valeur, Indice, 5, Soluce);
                  
                 Valeur.clear();
                 Valeur.add(Soluce.get(IndiceChange));
@@ -202,26 +229,31 @@ System.out.println("1");
                 
                 
                 
+                
+                
+                                precedent = Soluce;
+                BPpre = BP;
+                MPpre = MP;
+                
+                ValeurChange = (Integer) Soluce.get(IndiceChange);
+                
                 IndiceChange++;
-                
-                
                 
                 Soluce = GenCheck(Soluce, 1);
                 Indice.clear();
                 Valeur.clear();
-                ValeurChange = (Integer) Soluce.get(IndiceChange);
+                
             }
             
             else if (MPtemp > MPpre && BPtemp == BPpre){
                 System.out.println("4.5");
+                
+                ValeurChange = (Integer) Soluce.get(IndiceChange);
                                 IndiceChange++;
-                
-                
-                
+                                                
                 Soluce = GenCheck(Soluce, 1);
                 Indice.clear();
                 Valeur.clear();
-                ValeurChange = (Integer) Soluce.get(IndiceChange);
             }
             
             else if (MPtemp < MPpre && BPtemp > BPpre){
@@ -235,10 +267,16 @@ System.out.println("1");
 
                 Treat(Valeur, Indice, 3, Soluce);
 
+                                precedent = Soluce;
+                BPpre = BP;
+                MPpre = MP;
+                 
+                                ValeurChange = (Integer) Soluce.get(IndiceChange);            
+
+                
                 Soluce = GenCheck(Soluce, 1);
                 Indice.clear();
                 Valeur.clear();
-                ValeurChange = (Integer) Soluce.get(IndiceChange);            
                 
                 
             }
@@ -248,7 +286,7 @@ System.out.println("1");
                 Valeur.add(ValeurChange);
                 Indice.add(IndiceChange);
 
-                Treat(Valeur, Indice, 5, Soluce);
+               // Treat(Valeur, Indice, 5, Soluce);
 
                 Valeur.clear();
                 Indice.clear(); 
@@ -257,16 +295,61 @@ System.out.println("1");
                     Valeur.add(i);
                 }
 
-                Valeur.remove(ValeurChange);
+                Valeur.remove((Integer) ValeurChange);
                 Indice.add(IndiceChange);
 
                 Treat(Valeur, Indice, 3, Soluce);
 
+                                precedent = Soluce;
+                BPpre = BP;
+                MPpre = MP;
+                
+                                ValeurChange = (Integer) Soluce.get(IndiceChange);            
+
+                
                 Soluce = GenCheck(Soluce, 1);
                 Indice.clear();
                 Valeur.clear();
-                ValeurChange = (Integer) Soluce.get(IndiceChange);            
                 
+                
+            }
+            
+            else if (MPtemp == 5){
+                System.out.println("4.8");
+                for (int i = 0; i < Soluce.size(); i++) {
+                    Indice.add(i);
+                }
+
+                for (int i = 1; i < 9; i++) {
+                    Valeur.add(i);
+                }
+
+                for (int i = 0; i < Soluce.size(); i++) {
+                    int j = (Integer) Soluce.get(i);
+
+                    temp.add(j);
+                }
+
+                for (int i = 0; i < Valeur.size(); i++) {
+                    for (int j = 0; j < temp.size(); j++) {
+                        if (Valeur.get(i) == temp.get(j)) {
+                            Valeur.remove(j);
+                        }
+                    }
+                }
+
+                Treat(Valeur, Indice, 4, Soluce);
+
+                precedent = Soluce;
+                BPpre = BP;
+                MPpre = MP;
+
+                ValeurChange = (Integer) Soluce.get(IndiceChange);
+                
+                Soluce = GenCheck(Soluce, 1);
+
+                Indice.clear();
+                Valeur.clear();
             }
         }
 return Soluce;
@@ -274,37 +357,32 @@ return Soluce;
 
     @Override
     public void Treat(ArrayList valeur, ArrayList indice, int cas, ArrayList SoluceActuel) {
-        int sind = (Integer) indice.get(0);
-        int sval = (Integer) valeur.get(0);
 
         switch (cas) {
             case 1:
-                ((ArrayList) memoire.get(sind)).remove(sval);
+                ((ArrayList) memoire.get((Integer) indice.get(0))).remove((Integer) valeur.get(0));
                 break;
             case 2:
                 for (int i = 0; i < indice.size(); i++) {
-                    int k = (Integer) indice.get(i);
-                    ((ArrayList) memoire.get(k)).remove(sind);
+                    ((ArrayList) memoire.get((Integer) indice.get(i))).remove((Integer) valeur.get(0));
                 }
                 break;
             case 3:
+                System.out.println(valeur.size());
                 for (int i = 0; i < valeur.size(); i++) {
-                    int l = (Integer) valeur.get(i);
-                    ((ArrayList) memoire.get(sind)).remove(l);
+                    ((ArrayList) memoire.get((Integer) indice.get(0))).remove((Integer) valeur.get(i));
                 }
                 break;
             case 4:
                 for (int i = 0; i < indice.size(); i++) {
                     for (int j = 0; j < valeur.size(); j++) {
-                        int k = (Integer) indice.get(i);
-                        int l = (Integer) valeur.get(j);
-                        ((ArrayList) memoire.get(k)).remove(l);
+                        ((ArrayList) memoire.get((Integer) indice.get(i))).remove((Integer) valeur.get(j));
                     }
                 }
                 break;
-            case 5:
-                ((ArrayList) memoire.get(sind)).add(sval);
-                break;
+          /*  case 5:
+                ((ArrayList) memoire.get((Integer) indice.get(0))).add((Integer) valeur.get(0));
+                break; */
         }
     }
 
@@ -312,29 +390,32 @@ return Soluce;
     public ArrayList GenCheck(ArrayList SolucePropose, int cas) {
 
         int NewVal;
-        
-        if(IndiceChange > 5){
+                
+        if(IndiceChange > 4){
             IndiceChange = 0;
         }
         switch (cas) {
             case 1:
+                
+                System.out.println(memoire);
 
                 if (((ArrayList) memoire.get(IndiceChange)).size() == 1) {
                     IndiceChange++;
-            if(IndiceChange > 5){
+            if(IndiceChange > 4){
             IndiceChange = 0;
         }
                 }
 
                 NewVal = min + r.nextInt(max - min);
+                
+                System.out.println(NewVal);
 
                 if (((ArrayList) memoire.get(IndiceChange)).contains(NewVal) && NewVal != (Integer) Soluce.get(IndiceChange)) {
-
-                    SolucePropose.set(IndiceChange, NewVal);
-
+System.out.println("Boulce " + NewVal);
                     for (int i = IndiceChange - 1; i > 0; i--) {
                         int temporal = (Integer) SolucePropose.get(i);
                         if (temporal == NewVal) {
+                            System.out.println("Befor");
                             GenCheck(SolucePropose, 1);
                         }
                     }
@@ -342,13 +423,17 @@ return Soluce;
                     for (int i = IndiceChange + 1; i < 5; i++) {
                         int tempest = (Integer) SolucePropose.get(i);
                         if (tempest == NewVal) {
+                            System.out.println("After");
                             GenCheck(SolucePropose, 1);
                         }
                     }
+                    System.out.println("Set " + NewVal);
+                    SolucePropose.set(IndiceChange, NewVal);
                     
-                    test(Soluce);
+                    //test(Soluce);
 
                 } else {
+                    System.out.println("§");
                     GenCheck(SolucePropose, 1);
                 }
                 break;
@@ -387,12 +472,14 @@ return Soluce;
         return SolucePropose;
     }
 public void test(ArrayList test){
-    
-            Set temp = new HashSet(Soluce);
-        ArrayList traite = new ArrayList(temp);
-        
-    if(traite.size() < 5)
+    System.out.println("bLOUP");
+            Set temp = new TreeSet(test);
+        //ArrayList traite = new ArrayList(temp);
+        System.out.println("Tempal" + temp);
+        //System.out.println("Traitor" + traite);
+    if(temp.size() < 5)
     {
+        System.out.println("Bite");
         GenCheck(Soluce, 1);
     }
 }

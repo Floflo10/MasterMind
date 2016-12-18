@@ -14,23 +14,25 @@ import java.util.ArrayList;
 public class IaSansDoublon implements IIa {
 
     @Override
-    public void MaJ(int BPAcutel, ArrayList SoluceActuel) {
+    public void MaJ(int BPActuel, int MPActuel, ArrayList SoluceActuel) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Case() {
+    public ArrayList Case(int BP, int MP, ArrayList SoluceActuel) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Treat() {
+    public void Treat(ArrayList valeur, ArrayList indice, int cas, ArrayList SoluceActuel) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void Check() {
+    public ArrayList GenCheck(ArrayList SolucePropose, int cas) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
 }
