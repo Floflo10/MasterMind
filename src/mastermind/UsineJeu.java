@@ -38,6 +38,8 @@ public class UsineJeu {
     {
         Ijeu Jeu = this.FabriqueJeu.creerJeu(type);
         Jeu.Initialisation();
+        Jeu.Party();
+        Jeu.Fin();
         return Jeu;
     }
 }

@@ -7,6 +7,7 @@ package mastermind;
 
 import mastermind.jeu.FabriqueJeu.TypeJeu;
 import mastermind.jeu.Ijeu;
+import mastermind.menu.Menu;
 
 /**
  *
@@ -21,11 +22,9 @@ public class MasterMind {
     public static void main(String[] args) {
         // TODO code application logic here
               
-        Ijeu test2 = UsineJeu.NewInstance().faireJeu(TypeJeu.JeuJoueur);
-        
-test2.Party();
-test2.Fin();
- 
+
+  Menu menu = new Menu();
+  menu.choix_jeux();
     }
     
 }
