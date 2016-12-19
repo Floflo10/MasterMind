@@ -30,7 +30,9 @@ public class FabriqueJeu {
 public enum TypeJeu 
 {
     JeuJoueur,
-    JeuIA
+    JeuDoublon,
+    JeuIA,
+    JeuIADoublon
 }
 
 }

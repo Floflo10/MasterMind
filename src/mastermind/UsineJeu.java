@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mastermind.jeu;
+package mastermind;
 
+import mastermind.jeu.FabriqueJeu;
 import mastermind.jeu.FabriqueJeu.TypeJeu;
+import mastermind.jeu.Ijeu;
 
 /**
  *
@@ -14,13 +16,23 @@ import mastermind.jeu.FabriqueJeu.TypeJeu;
 public class UsineJeu {
 
     private FabriqueJeu FabriqueJeu;// Attribut contenant la fabrique simple.
-     
+    private static UsineJeu Instance;
+    
     // Le constructeur permet de sélectionner la fabrique à utiliser.
-    public UsineJeu()
+    private UsineJeu()
     {
         this.FabriqueJeu = new FabriqueJeu();
     }
      
+    public static UsineJeu NewInstance()
+    {
+                if(Instance==null)
+                {
+                        Instance = new UsineJeu();
+                }
+                return Instance;
+    }
+    
     // Méthode qui permet de construire l'ensemble des unités.
     public Ijeu faireJeu(TypeJeu type)
     {

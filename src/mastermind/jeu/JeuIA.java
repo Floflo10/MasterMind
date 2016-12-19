@@ -6,8 +6,12 @@
 package mastermind.jeu;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Observable;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 import mastermind.ia.IaSansDoublon;
 
 /**
@@ -16,7 +20,7 @@ import mastermind.ia.IaSansDoublon;
  * @version 0.1
  *
  */
-public class JeuIA implements Ijeu {
+public class JeuIA extends Observable implements Ijeu {
 
     int turn = 10;
     int nbcase = 5;
@@ -43,7 +47,27 @@ public class JeuIA implements Ijeu {
 
     @Override
     public ArrayList TraitementDoublons(ArrayList soluce) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        /*Récupération de l'arrayList contenant les valeurs avec de possible doublons.    
+        Une fois récupérée, l'arrayList est tranformé en collectionneur de type Set.
+        Les doublons sont alors supprimé et la liste triée.
+         */
+        Set temp = new HashSet(soluce);
+        ArrayList traite = new ArrayList(temp);
+        temp = null;
+
+        //Si il y a eu une suppression de tableau, les valeurs manquantes sont à nouveau remplie.
+        while (nbcase > traite.size()) {
+            valeur = min + r.nextInt(max - min);
+            traite.add(valeur);
+        }
+
+        /* Nouvelle suppression des potentiels doublons, la méthode rendant soit l'ArrayList final
+    soit une version sans doublons mais avec des valeurs manquantes
+         */
+        Set temperature = new HashSet(traite);
+        ArrayList traite2 = new ArrayList(temperature);
+        Collections.shuffle(traite2);
+        return traite2;
     }
 
     @Override
@@ -74,6 +98,9 @@ public class JeuIA implements Ijeu {
             essaie = Jarvis.Case(BP, MP, essaie);
 
             nbturn++;
+            setChanged();
+            notifyObservers();
+
         }
 
     }
@@ -87,5 +114,15 @@ public class JeuIA implements Ijeu {
         }
 
     }
+
+
+
+    /**
+     * @return the essaie
+     */
+    public ArrayList getEssaie() {
+        return essaie;
+    }
+
 
 }

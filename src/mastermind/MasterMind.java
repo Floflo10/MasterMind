@@ -5,13 +5,8 @@
  */
 package mastermind;
 
-import java.util.ArrayList;
-import mastermind.ia.IaSansDoublon;
 import mastermind.jeu.FabriqueJeu.TypeJeu;
 import mastermind.jeu.Ijeu;
-import mastermind.jeu.JeuIA;
-import mastermind.jeu.JeuJoueur;
-import mastermind.jeu.UsineJeu;
 
 /**
  *
@@ -25,10 +20,8 @@ public class MasterMind {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
- 
-        UsineJeu test = new UsineJeu();
-        Ijeu test2 = test.faireJeu(TypeJeu.JeuJoueur);
+              
+        Ijeu test2 = UsineJeu.NewInstance().faireJeu(TypeJeu.JeuJoueur);
         
 test2.Party();
 test2.Fin();
