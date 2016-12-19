@@ -12,5 +12,26 @@ package mastermind.jeu;
  * 
  */
 public class FabriqueJeu {
-    
+
+    // La création d'un jeu en fonction de son type est encapsulée dans la fabrique.
+    public Ijeu creerJeu(TypeJeu type)
+    {
+        Ijeu jeu = null;;
+        switch(type)
+        {
+            case JeuJoueur:jeu = new JeuJoueur();break;
+            case JeuIA:jeu = new JeuIA();break;
+        }
+        return jeu;
+    }
+
+
+// Enumération des types de jeu.
+public enum TypeJeu 
+{
+    JeuJoueur,
+    JeuIA
 }
+
+}
+

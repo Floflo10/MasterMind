@@ -15,7 +15,8 @@ import java.util.Scanner;
  * @version 0.1
  */
 public class JeuJoueurDoublon implements Ijeu {
-        int turn = 10;
+
+    int turn = 10;
     int nbcase = 5;
 
     private ArrayList soluce = new ArrayList();
@@ -45,7 +46,6 @@ public class JeuJoueurDoublon implements Ijeu {
 
         }
     }
-
 
     @Override
     public void Party() {
@@ -107,6 +107,5 @@ public class JeuJoueurDoublon implements Ijeu {
     public ArrayList TraitementDoublons(ArrayList soluce) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 
 }

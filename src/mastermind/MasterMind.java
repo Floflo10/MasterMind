@@ -6,10 +6,12 @@
 package mastermind;
 
 import java.util.ArrayList;
-import mastermind.ia.IaDoublon;
-import mastermind.jeu.JeuIADoublon;
+import mastermind.ia.IaSansDoublon;
+import mastermind.jeu.FabriqueJeu.TypeJeu;
+import mastermind.jeu.Ijeu;
+import mastermind.jeu.JeuIA;
 import mastermind.jeu.JeuJoueur;
-import mastermind.jeu.TestAlgo;
+import mastermind.jeu.UsineJeu;
 
 /**
  *
@@ -24,36 +26,13 @@ public class MasterMind {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        /*      int nbcase = 5;
-        int max = 9;
-                
-        ArrayList mem = new ArrayList();
-        
-        
-        for(int i=0; i<nbcase; i++){
-            mem.add(new ArrayList());
-            for(int j=1; j<max+1; j++){
-                ((ArrayList)mem.get(i)).add(j);                
-            }
-            
-        }
-        
-        System.out.println(mem);
- */ /*       JeuJoueur test = new JeuJoueur();
-
-test.Initialisation();
-test.Party();
-test.Fin(); */
  
+        UsineJeu test = new UsineJeu();
+        Ijeu test2 = test.faireJeu(TypeJeu.JeuJoueur);
+        
+test2.Party();
+test2.Fin();
  
- 
- JeuIADoublon test = new JeuIADoublon();
-
-test.Initialisation();
-test.Party();
-test.Fin();
-
-
     }
     
 }
